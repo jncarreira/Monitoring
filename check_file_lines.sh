@@ -14,13 +14,13 @@
 #				
 # # # - - -
 
-PROGNAME=`basename $0`
-PROGPATH=`echo $0 | sed -e 's,[\\/][^\\/][^\\/]*$,,'`
-
 # # # - - -
 # Usage:		$PROGPATH/$PROGNAME --file|-f <file> --position|-p <position_file> --help|-h 
 #
 # # # - - -
+
+PROGNAME=`basename $0`
+PROGPATH=`echo $0 | sed -e 's,[\\/][^\\/][^\\/]*$,,'`
 
 print_usage () {
 	echo "- Usage:      $PROGPATH/$PROGNAME --file|-f <file> [--position|-p <position_file>]"
