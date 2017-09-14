@@ -96,7 +96,7 @@ export CURRENT=$(cat $MONITORED_FILE | wc -l)
 if [ ! -e $POSITION_FILE ]
 then
     echo $CURRENT > $POSITION_FILE
-    echo "OK - File check data initialized."
+    echo "OK - File check data initialized. - "$MONITORED_FILE
     exit $STATE_OK
 fi
 
@@ -106,11 +106,11 @@ export PREVIOUS=$(cat $POSITION_FILE)
 # Compare number of lines of file with position file
 if [ $CURRENT -gt $PREVIOUS ]
 then
-	echo "CRITICAL - "$(($CURRENT-$PREVIOUS))" new line/s appeared."
+	echo "CRITICAL - "$(($CURRENT-$PREVIOUS))" new line/s appeared. - "$MONITORED_FILE
 	echo $CURRENT > $POSITION_FILE
 	exit $STATE_CRITICAL
 else
-	echo "OK - No new lines."
+	echo "OK - No new lines. - "$MONITORED_FILE
 	echo $CURRENT > $POSITION_FILE
 	exit $STATE_OK
 fi
